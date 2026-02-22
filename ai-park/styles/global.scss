@@ -1,0 +1,391 @@
+/* 重置样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* 状态栏高度变量 */
+:root {
+    /* 状态栏高度适配 */
+    --status-bar-height: 0px;
+    --safe-area-inset-top: 0px;
+    --safe-area-inset-bottom: 0px;
+    --safe-area-inset-left: 0px;
+    --safe-area-inset-right: 0px;
+    
+    /* 浅色模式默认变量 */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f7f9;
+    --bg-secondary-rgb: 245, 247, 249;
+    --text-primary: #1a1a1a;
+    --text-secondary: #666666;
+    --border-color: #e0e5eb;
+    --header-bg: rgba(255, 255, 255, 0.85);
+    --input-bg: #f5f7f9;
+    --hover-bg: #ebeef2;
+    --shadow-color: rgba(0, 0, 0, 0.08);
+    --scroll-thumb: rgba(0, 0, 0, 0.2);
+    --error-color: #ff4d4f;
+    --warning-color: #faad14;
+    --error-bg: rgba(255, 77, 79, 0.1);
+    --icon-filter: none;
+    --text-placeholder: #999999;
+
+    /* 消息气泡颜色样式 - 明亮模式增强对比 */
+    --ai-message-bg: #e8eef5;
+    --ai-message-bg-light: #f0f7ff;
+    --ai-message-text: #1a1a1a;
+    --user-message-bg: #0076e4;
+    --user-message-bg-light: #2c9bff;
+    --user-message-text: #ffffff;
+    --loading-color: rgba(0, 0, 0, 0.3);
+    --loading-color-active: rgba(0, 0, 0, 0.6);
+    --error-text: #ff4d4f;
+    --timeout-text: #faad14;
+    --timeout-bg: rgba(250, 173, 20, 0.1);
+    --code-bg: #f0f0f0;
+    --code-inline-bg: rgba(175, 184, 193, 0.3);
+
+    &[data-theme="dark"] {
+        --code-bg: #2d2d2d;
+    }
+}
+
+/* 深色主题类名，以支持小程序等不支持直接操作CSS变量的环境 */
+.theme-dark {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2a2a2a;
+    --bg-secondary-rgb: 42, 42, 42;
+    --text-primary: #f5f5f5;
+    --text-secondary: #a0a0a0;
+    --border-color: #3a3a3a;
+    --header-bg: rgba(26, 26, 26, 0.85);
+    --input-bg: #2a2a2a;
+    --hover-bg: #3a3a3a;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --scroll-thumb: rgba(255, 255, 255, 0.15);
+    --error-color: #ff7875;
+    --warning-color: #ffc53d;
+    --error-bg: rgba(255, 77, 79, 0.15);
+    --icon-filter: invert(0.8);
+    --text-placeholder: #666666;
+
+    /* 深色模式消息气泡颜色 */
+    --ai-message-bg: #2d2d2d;
+    --ai-message-bg-light: #383838;
+    --ai-message-text: #f0f0f0;
+    --user-message-bg: #0A84FF;
+    --user-message-bg-light: #0060d1;
+    --user-message-text: #ffffff;
+    --loading-color: rgba(255, 255, 255, 0.3);
+    --loading-color-active: rgba(255, 255, 255, 0.6);
+    --error-text: #ff7875;
+    --timeout-text: #ffc53d;
+    --timeout-bg: rgba(255, 197, 61, 0.1);
+    --code-bg: #2d2d2d;
+    --code-inline-bg: rgba(99, 110, 123, 0.4);
+}
+
+// 全局基础样式
+html,
+body,
+page {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+        Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.5;
+    min-height: 100vh;
+    transition: all 0.3s ease;
+}
+
+/* 状态栏适配 */
+.status-bar-placeholder {
+    height: var(--status-bar-height);
+    background: transparent;
+    flex-shrink: 0;
+}
+
+/* 安全区域适配 */
+.safe-area-inset-top {
+    padding-top: constant(safe-area-inset-top);
+    padding-top: env(safe-area-inset-top);
+}
+
+.safe-area-inset-bottom {
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+.safe-area-inset-left {
+    padding-left: constant(safe-area-inset-left);
+    padding-left: env(safe-area-inset-left);
+}
+
+.safe-area-inset-right {
+    padding-right: constant(safe-area-inset-right);
+    padding-right: env(safe-area-inset-right);
+}
+
+/* 刘海屏/水滴屏适配 */
+@supports (top: constant(safe-area-inset-top)) or (top: env(safe-area-inset-top)) {
+    .notch-safe-area {
+        padding-top: constant(safe-area-inset-top);
+        padding-top: env(safe-area-inset-top);
+    }
+}
+
+// 暗色主题
+.dark-theme {
+    --bg-primary: #121212;
+    --bg-secondary: #1e1e1e;
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0b0;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --header-bg: rgba(18, 18, 18, 0.95);
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --input-bg: #2d2d2d;
+    --hover-bg: rgba(255, 255, 255, 0.1);
+    --message-bg: #2d2d2d;
+    --sidebar-bg: #1a1a1a;
+    --icon-invert: 1;
+    --icon-filter: invert(0.8);
+    --bg-secondary-rgb: 30, 30, 30;
+
+    // 容器样式
+    .container {
+        background-color: var(--bg-primary);
+    }
+
+    // 聊天区域样式
+    .chat-area {
+        background-color: var(--bg-primary);
+
+        .messages {
+            .message-content {
+                background-color: var(--message-bg);
+                color: var(--text-primary);
+            }
+        }
+    }
+
+    // 输入区域样式
+    .input-container {
+        .input-area {
+            background: var(--input-bg);
+
+            textarea {
+                color: var(--text-primary);
+
+                &::placeholder {
+                    color: var(--text-secondary);
+                }
+            }
+
+            .send-btn {
+                background: linear-gradient(135deg, #007AFF, #00C6FF);
+                color: white;
+            }
+        }
+    }
+
+    // 头部样式
+    .header {
+        background: var(--header-bg);
+
+        .website-title {
+            color: white;
+            -webkit-text-fill-color: white;
+        }
+
+        .header-btn {
+            color: var(--text-secondary);
+
+            &:hover {
+                color: white;
+                background: var(--hover-bg);
+            }
+        }
+    }
+
+    // 侧边栏样式
+    .model-sidebar {
+        background: var(--sidebar-bg);
+        border-color: var(--border-color);
+
+        .function-item,
+        .model-item {
+            color: var(--text-secondary);
+
+            &:hover {
+                background: var(--hover-bg);
+            }
+        }
+    }
+
+    // 侧边栏切换按钮
+    .sidebar-toggle {
+        background: var(--bg-secondary);
+        color: var(--text-primary);
+
+        &:hover {
+            background: var(--hover-bg);
+        }
+    }
+
+    // 登录弹窗样式
+    .login-popup {
+        .popup-content {
+            background: var(--bg-secondary);
+        }
+
+        .input {
+            background: var(--input-bg);
+            color: var (--text-primary);
+            border-color: var(--border-color);
+        }
+    }
+
+    // 滚动条样式
+    ::-webkit-scrollbar-thumb {
+        background: var(--text-secondary);
+    }
+
+    ::-webkit-scrollbar-track {
+        background: var(--bg-secondary);
+    }
+
+    .upload-buttons {
+        .upload-btn {
+            image {
+                filter: invert(1) brightness(1.5);
+            }
+        }
+    }
+}
+
+// 全局滚动条样式
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--scroll-thumb);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--scroll-thumb);
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+// 全局滚动条控制
+::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+* {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.container {
+    height: 100vh;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-primary);
+    overflow-x: hidden;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    /* 适配状态栏 */
+    padding-top: constant(safe-area-inset-top);
+    padding-top: env(safe-area-inset-top);
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+    height: calc(100vh - 60px - constant(safe-area-inset-top));
+    height: calc(100vh - 60px - env(safe-area-inset-top));
+    position: relative;
+    background: transparent;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+// 动画效果
+@keyframes messageAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes messageUpdate {
+    0%,
+    100% {
+        background: transparent;
+    }
+
+    50% {
+        background: rgba(0, 122, 255, 0.1);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes cursor-blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* 文本选择样式 */
+::selection {
+    background-color: rgba(0, 122, 255, 0.3);
+}
+
+/* 确保文本可以被选中 */
+.selectable,
+.message-text,
+.chat-area .messages-container .message .message-content .message-text {
+    user-select: text !important;
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    -ms-user-select: text !important;
+    cursor: text;
+    pointer-events: auto !important;
+}
+
+/* 防止消息点击事件阻止文本选择 */
+.message {
+    pointer-events: auto;
+}

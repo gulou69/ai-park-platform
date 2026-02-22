@@ -1,0 +1,149 @@
+{
+    "name" : "AI Park",
+    "appid" : "__UNI__9BB6224",
+    "description" : "AI Park - 智能对话平台",
+    "versionName" : "1.0.0",
+    "versionCode" : "100",
+    "transformPx" : false,
+    /* 5+App特有相关 */
+    "app-plus" : {
+        "usingComponents" : true,
+        "nvueStyleCompiler" : "uni-app",
+        "compilerVersion" : 3,
+        "splashscreen" : {
+            "alwaysShowBeforeRender" : true,
+            "waiting" : true,
+            "autoclose" : true,
+            "delay" : 0
+        },
+        /* 模块配置 */
+        "modules" : {
+            "OAuth" : {},
+            "Share" : {},
+            "Geolocation" : {},
+            "Push" : {},
+            "VideoPlayer" : {}
+        },
+        /* 应用发布信息 */
+        "distribute" : {
+            /* android打包配置 */
+            "android" : {
+                "permissions" : [
+                    "<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>",
+                    "<uses-permission android:name=\"android.permission.VIBRATE\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_LOGS\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>",
+                    "<uses-feature android:name=\"android.hardware.camera.autofocus\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.CAMERA\"/>",
+                    "<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>",
+                    "<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>",
+                    "<uses-feature android:name=\"android.hardware.camera\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>",
+                    "<uses-permission android:name=\"android.permission.INTERNET\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_EXTERNAL_STORAGE\"/>"
+                ]
+            },
+            /* ios打包配置 */
+            "ios" : {
+                "capabilities" : {
+                    "entitlements" : {
+                        "com.apple.developer.networking.wifi-info" : true
+                    }
+                }
+            },
+            /* SDK配置 */
+            "sdkConfigs" : {
+                "oauth" : {},
+                "share" : {},
+                "geolocation" : {},
+                "push" : {}
+            }
+        },
+        /* 快应用特有相关 */
+        "quickapp" : {},
+        /* 小程序特有相关 */
+        "mp-weixin" : {
+            "appid" : "",
+            "setting" : {
+                "urlCheck" : false
+            },
+            "usingComponents" : true
+        },
+        "mp-alipay" : {
+            "usingComponents" : true
+        },
+        "mp-baidu" : {
+            "usingComponents" : true
+        },
+        "mp-toutiao" : {
+            "usingComponents" : true
+        },
+        "uniStatistics" : {
+            "enable" : false
+        },
+        "vueVersion" : "3"
+    },
+    /* 关键配置：状态栏和全面屏 */
+    "plus" : {
+        "statusbar" : {
+            "immersed" : true,
+            "style" : "light",
+            "background" : "transparent"
+        },
+        "popGesture" : "close",
+        "runmode" : "normal",
+        "splashscreen" : {
+            "autoclose" : true,
+            "waiting" : false,
+            "delay" : 500
+        },
+        "distribute" : {
+            "android" : {
+                "abiFilters" : [ "armeabi-v7a", "arm64-v8a" ],
+                "permissions" : [
+                    "<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>",
+                    "<uses-permission android:name=\"android.permission.VIBRATE\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_LOGS\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.CAMERA\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>",
+                    "<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>",
+                    "<uses-permission android:name=\"android.permission.INTERNET\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_EXTERNAL_STORAGE\"/>"
+                ]
+            },
+            "ios" : {
+                "capabilities" : {
+                    "entitlements" : {
+                        "com.apple.developer.networking.wifi-info" : true
+                    }
+                }
+            }
+        }
+    },
+    /* 开启全面屏支持 */
+    "fullscreen" : true,
+    /* H5配置 */
+    "h5" : {
+        "devServer" : {
+            "port" : 8080,
+            "disableHostCheck" : true
+        },
+        "router" : {
+            "mode" : "hash",
+            "base" : "./"
+        }
+    }
+}

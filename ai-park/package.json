@@ -1,0 +1,42 @@
+{
+  "name": "ai-park",
+  "version": "1.0.0",
+  "description": "AI Park",
+  "main": "main.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development uniapp-cli dev",
+    "build": "cross-env NODE_ENV=production uniapp-cli build",
+    "build:h5": "cross-env UNI_PLATFORM=h5 vue-cli-service build",
+    "serve": "cross-env NODE_ENV=production uniapp-cli build",
+    "dev:h5": "cross-env UNI_PLATFORM=h5 vue-cli-service serve",
+    "serve:h5": "npx serve -s ./unpackage/dist/build/web -p 8080"
+  },
+  "dependencies": {
+    "@dcloudio/uni-h5": "^2.0.0",
+    "@dcloudio/uni-app-plus": "^2.0.0",
+    "@dcloudio/uni-mp-weixin": "^2.0.0",
+    "@dcloudio/uni-helper-json": "*",
+    "vue": "^2.6.14",
+    "vue-router": "^3.5.4",
+    "bootstrap-icons": "^1.11.3",
+    "markdown-it": "^14.1.0"
+  },
+  "devDependencies": {
+    "@dcloudio/uni-cli-shared": "^2.0.0",
+    "@dcloudio/uni-template-compiler": "^2.0.0",
+    "@dcloudio/vue-cli-plugin-hbuilderx": "^2.0.0",
+    "@dcloudio/vue-cli-plugin-uni": "^2.0.0",
+    "@dcloudio/webpack-uni-mp-loader": "^2.0.0",
+    "@dcloudio/webpack-uni-pages-loader": "^2.0.0",
+    "cross-env": "^7.0.3",
+    "@vue/cli-service": "^4.5.19",
+    "vue-template-compiler": "^2.6.14"
+  },
+  "browserslist": [
+    "Android >= 4.4",
+    "ios >= 9"
+  ],
+  "uni-app": {
+    "scripts": {}
+  }
+}

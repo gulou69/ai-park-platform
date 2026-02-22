@@ -1,0 +1,105 @@
+services:
+  # MySQL数据库服务
+  mysql:
+    image: mysql:8.0
+    container_name: ai-park-mysql
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-changeme}
+      MYSQL_DATABASE: ai_park
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    networks:
+      - ai-park-network
+    command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD:-changeme}"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # Redis服务
+  redis:
+    image: redis:7-alpine
+    container_name: ai-park-redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - ai-park-network
+    command: redis-server --appendonly yes --requirepass ""
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  backend:
+    build: ./backend
+    container_name: ai-park-backend
+    env_file:
+      - .env.docker
+    ports:
+      - "3001:3001"
+    restart: always
+    volumes:
+      - ./logs:/app/logs
+    networks:
+      - ai-park-network
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      
+  frontend:
+    build: ./ai-park
+    container_name: ai-park-frontend
+    env_file:
+      - .env.docker
+    ports:
+      - "8080:8080"
+    restart: always
+    volumes:
+      - ./logs:/app/logs
+    networks:
+      - ai-park-network
+    depends_on:
+      backend:
+        condition: service_healthy
+      
+  admin:
+    build: ./admin-vue
+    container_name: ai-park-admin
+    env_file:
+      - .env.docker
+    ports:
+      - "7723:7723"
+    restart: always
+    volumes:
+      - ./logs:/app/logs
+    networks:
+      - ai-park-network
+    depends_on:
+      backend:
+        condition: service_healthy
+
+networks:
+  ai-park-network:
+    driver: bridge
+
+volumes:
+  redis-data:
+    driver: local
+  mysql-data:
+    driver: local
