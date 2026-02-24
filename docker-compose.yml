@@ -27,7 +27,7 @@ services:
     container_name: ai-park-redis
     restart: always
     ports:
-      - "6379:6379"
+      - "6380:6379"
     volumes:
       - redis-data:/data
     networks:
@@ -65,13 +65,9 @@ services:
   frontend:
     build: ./ai-park
     container_name: ai-park-frontend
-    env_file:
-      - .env.docker
     ports:
-      - "8080:8080"
+      - "8180:8080"
     restart: always
-    volumes:
-      - ./logs:/app/logs
     networks:
       - ai-park-network
     depends_on:
@@ -81,13 +77,9 @@ services:
   admin:
     build: ./admin-vue
     container_name: ai-park-admin
-    env_file:
-      - .env.docker
     ports:
       - "7723:7723"
     restart: always
-    volumes:
-      - ./logs:/app/logs
     networks:
       - ai-park-network
     depends_on:

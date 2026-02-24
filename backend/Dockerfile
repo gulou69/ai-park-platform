@@ -12,7 +12,7 @@ WORKDIR /app
 
 # 复制package文件并安装依赖
 COPY package*.json ./
-RUN npm install --production
+RUN npm config set registry https://registry.npmmirror.com && npm install --production
 
 # 复制应用代码
 COPY . .
