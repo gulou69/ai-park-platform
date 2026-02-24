@@ -319,7 +319,7 @@ export default {
       transform: scale(1.1);
     }
     
-    text {
+    uni-text {
       font-size: 20px;
       color: var(--text-secondary);
       line-height: 1;
@@ -437,7 +437,7 @@ export default {
     justify-content: center;
     margin-right: 12px;
     
-    text {
+    uni-text {
       font-size: 20px;
     }
   }

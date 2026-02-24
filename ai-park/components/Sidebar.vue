@@ -423,7 +423,7 @@ export default {
         animation: spin 1s linear infinite;
       }
 
-      text {
+      uni-text {
         color: var(--text-secondary);
         font-size: 14px;
       }
@@ -503,7 +503,7 @@ export default {
           align-items: center;
           justify-content: center;
 
-          image {
+          uni-image {
             width: 16px;
             height: 16px;
             filter: var(--icon-filter);
@@ -513,7 +513,7 @@ export default {
           &:hover {
             background: var(--hover-bg);
 
-            image {
+            uni-image {
               opacity: 1;
             }
           }
@@ -521,7 +521,7 @@ export default {
           &.delete-btn:hover {
             background: rgba(255, 77, 79, 0.1);
 
-            image {
+            uni-image {
               filter: invert(35%) sepia(73%) saturate(7471%) hue-rotate(346deg) brightness(98%) contrast(109%);
             }
           }
@@ -581,7 +581,7 @@ export default {
         display: none; // 移除 uni-app button 默认边框
       }
 
-      image {
+      uni-image {
         width: 16px !important;
         height: 16px !important;
         max-width: 16px;
@@ -593,7 +593,7 @@ export default {
         opacity: 0.6;
       }
 
-      text {
+      uni-text {
         font-size: 14px;
         line-height: 1;
         white-space: nowrap;
@@ -603,7 +603,7 @@ export default {
         background: var(--hover-bg);
         color: var(--text-primary);
 
-        image {
+        uni-image {
           opacity: 1;
         }
       }
