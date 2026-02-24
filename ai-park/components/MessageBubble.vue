@@ -560,7 +560,7 @@ export default {
     margin-left: 12px; // 增加与消息气泡间距
   }
 
-  image {
+  uni-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -573,7 +573,7 @@ export default {
     transform: scale(1.08);
     box-shadow: 0 5px 12px var(--shadow-color);
 
-    image {
+    uni-image {
       transform: scale(1.05);
     }
   }
@@ -859,7 +859,7 @@ export default {
       transform: translateY(0) scale(0.95);
     }
 
-    image {
+    uni-image {
       width: 16px;
       height: 16px;
       filter: var(--icon-filter);

@@ -557,11 +557,11 @@ export default {
       gap: 8px;
       cursor: pointer;
 
-      checkbox {
+      uni-checkbox {
         transform: scale(0.9);
       }
 
-      text {
+      uni-text {
         font-size: 14px;
         color: var(--text-secondary);
       }
@@ -653,7 +653,7 @@ export default {
   position: relative;
   overflow: hidden;
 
-  text {
+  uni-text {
     color: #fff;
   }
 
@@ -686,7 +686,7 @@ export default {
 .divider {
   margin: 24px 0;
 
-  text {
+  uni-text {
     padding: 0 12px;
     font-size: 14px;
   }
@@ -711,12 +711,12 @@ export default {
   justify-content: center;
   gap: 8px;
 
-  image {
+  uni-image {
     width: 20px;
     height: 20px;
   }
 
-  text {
+  uni-text {
     font-size: 14px;
     color: var(--text-primary);
   }
@@ -733,7 +733,7 @@ export default {
   font-size: 14px;
   color: var(--text-secondary);
 
-  text {
+  uni-text {
     color: #007AFF;
     cursor: pointer;
     margin-left: 4px;
@@ -880,7 +880,7 @@ export default {
   justify-content: center;
   gap: 8px;
 
-  image {
+  uni-image {
     width: 24px;
     height: 24px;
     filter: brightness(0) invert(1);

@@ -97,7 +97,7 @@ init.sql              # 数据库初始化脚本
 1. 克隆项目
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/ai-park-platform.git
+git clone https://github.com/gulou69/ai-park-platform
 cd ai-park-platform
 ```
 

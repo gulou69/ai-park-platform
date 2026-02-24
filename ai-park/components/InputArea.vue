@@ -255,7 +255,7 @@ export default {
   }
 
   // 文本输入框样式
-  textarea {
+  uni-textarea {
     position: relative;
     flex: 1;
     min-width: 0;
@@ -415,7 +415,7 @@ export default {
       transform: scale(0.95);
     }
 
-    image {
+    uni-image {
       width: 100%;
       height: 100%;
       object-fit: contain;
@@ -572,7 +572,7 @@ export default {
   }
 
   .input-area {
-    textarea {
+    uni-textarea {
       padding-right: 100px; // 为发送按钮预留空间
     }
   }

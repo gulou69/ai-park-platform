@@ -440,7 +440,7 @@ export default {
         background: var(--hover-bg);
       }
 
-      image {
+      uni-image {
         width: 100%;
         height: 100%;
         filter: var(--icon-filter);
@@ -472,7 +472,7 @@ export default {
           background: var(--hover-bg);
         }
 
-        text {
+        uni-text {
           color: var(--text-secondary);
         }
       }
@@ -740,13 +740,13 @@ export default {
       align-items: center;
       gap: 12px;
 
-      image {
+      uni-image {
         width: 32px;
         height: 32px;
         border-radius: 50%;
       }
 
-      text {
+      uni-text {
         color: var(--text-primary);
         font-size: 14px;
         font-weight: 500;
@@ -768,7 +768,7 @@ export default {
         font-size: 20px;
       }
 
-      text {
+      uni-text {
         color: var(--text-primary);
         font-size: 15px;
       }
@@ -780,7 +780,7 @@ export default {
       &.logout {
         color: #ff4d4f;
 
-        text {
+        uni-text {
           color: #ff4d4f;
         }
       }
@@ -825,7 +825,7 @@ export default {
     align-items: center;
     gap: 12px;
 
-    image {
+    uni-image {
       width: 32px;
       height: 32px;
       border-radius: 50%;
@@ -833,7 +833,7 @@ export default {
       display: block;
     }
 
-    text {
+    uni-text {
       color: var(--text-primary);
       font-size: 14px;
       font-weight: 500;

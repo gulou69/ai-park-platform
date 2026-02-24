@@ -260,7 +260,7 @@ export default {
             animation: spin 1s linear infinite;
         }
 
-        text {
+        uni-text {
             color: var(--text-secondary);
             font-size: 14px;
         }
