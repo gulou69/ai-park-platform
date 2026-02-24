@@ -16,22 +16,28 @@
     --safe-area-inset-right: 0px;
     
     /* 浅色模式默认变量 */
-    --bg-primary: #ffffff;
-    --bg-secondary: #f5f7f9;
-    --bg-secondary-rgb: 245, 247, 249;
-    --text-primary: #1a1a1a;
+    --bg-primary: #f9f9f9;
+    --bg-secondary: #ffffff;
+    --bg-secondary-rgb: 255, 255, 255;
+    --bg-tertiary: #f0f2f5;
+    --text-primary: #212121;
     --text-secondary: #666666;
-    --border-color: #e0e5eb;
-    --header-bg: rgba(255, 255, 255, 0.85);
-    --input-bg: #f5f7f9;
-    --hover-bg: #ebeef2;
+    --text-tertiary: #999999;
+    --border-color: #e0e0e0;
+    --header-bg: rgba(255, 255, 255, 0.9);
+    --input-bg: #f5f5f5;
+    --hover-bg: #f0f0f0;
+    --bg-hover: #f0f0f0;
     --shadow-color: rgba(0, 0, 0, 0.08);
     --scroll-thumb: rgba(0, 0, 0, 0.2);
     --error-color: #ff4d4f;
     --warning-color: #faad14;
     --error-bg: rgba(255, 77, 79, 0.1);
     --icon-filter: none;
-    --text-placeholder: #999999;
+    --text-placeholder: #888888;
+    --primary-color: #007AFF;
+    --primary-bg: rgba(0, 122, 255, 0.08);
+    --sidebar-bg: #f5f5f5;
 
     /* 消息气泡颜色样式 - 明亮模式增强对比 */
     --ai-message-bg: #e8eef5;
@@ -55,22 +61,28 @@
 
 /* 深色主题类名，以支持小程序等不支持直接操作CSS变量的环境 */
 .theme-dark {
-    --bg-primary: #1a1a1a;
-    --bg-secondary: #2a2a2a;
-    --bg-secondary-rgb: 42, 42, 42;
-    --text-primary: #f5f5f5;
-    --text-secondary: #a0a0a0;
-    --border-color: #3a3a3a;
-    --header-bg: rgba(26, 26, 26, 0.85);
+    --bg-primary: #121212;
+    --bg-secondary: #1e1e1e;
+    --bg-secondary-rgb: 30, 30, 30;
+    --bg-tertiary: #2a2a2a;
+    --text-primary: #e0e0e0;
+    --text-secondary: #9e9e9e;
+    --text-tertiary: #666666;
+    --border-color: #333333;
+    --header-bg: rgba(30, 30, 30, 0.9);
     --input-bg: #2a2a2a;
-    --hover-bg: #3a3a3a;
-    --shadow-color: rgba(0, 0, 0, 0.3);
+    --hover-bg: #2a2a2a;
+    --bg-hover: #333333;
+    --shadow-color: rgba(0, 0, 0, 0.5);
     --scroll-thumb: rgba(255, 255, 255, 0.15);
     --error-color: #ff7875;
     --warning-color: #ffc53d;
     --error-bg: rgba(255, 77, 79, 0.15);
-    --icon-filter: invert(0.8);
-    --text-placeholder: #666666;
+    --icon-filter: invert(0.85);
+    --text-placeholder: #737373;
+    --primary-color: #0A84FF;
+    --primary-bg: rgba(10, 132, 255, 0.12);
+    --sidebar-bg: #1a1a1a;
 
     /* 深色模式消息气泡颜色 */
     --ai-message-bg: #2d2d2d;
@@ -137,136 +149,9 @@ page {
     }
 }
 
-// 暗色主题
-.dark-theme {
-    --bg-primary: #121212;
-    --bg-secondary: #1e1e1e;
-    --text-primary: #ffffff;
-    --text-secondary: #b0b0b0;
-    --border-color: rgba(255, 255, 255, 0.1);
-    --header-bg: rgba(18, 18, 18, 0.95);
-    --shadow-color: rgba(0, 0, 0, 0.3);
-    --input-bg: #2d2d2d;
-    --hover-bg: rgba(255, 255, 255, 0.1);
-    --message-bg: #2d2d2d;
-    --sidebar-bg: #1a1a1a;
-    --icon-invert: 1;
-    --icon-filter: invert(0.8);
-    --bg-secondary-rgb: 30, 30, 30;
+/* .dark-theme 已合并到 .theme-dark 中，避免重复定义导致变量值不一致 */
 
-    // 容器样式
-    .container {
-        background-color: var(--bg-primary);
-    }
-
-    // 聊天区域样式
-    .chat-area {
-        background-color: var(--bg-primary);
-
-        .messages {
-            .message-content {
-                background-color: var(--message-bg);
-                color: var(--text-primary);
-            }
-        }
-    }
-
-    // 输入区域样式
-    .input-container {
-        .input-area {
-            background: var(--input-bg);
-
-            textarea {
-                color: var(--text-primary);
-
-                &::placeholder {
-                    color: var(--text-secondary);
-                }
-            }
-
-            .send-btn {
-                background: linear-gradient(135deg, #007AFF, #00C6FF);
-                color: white;
-            }
-        }
-    }
-
-    // 头部样式
-    .header {
-        background: var(--header-bg);
-
-        .website-title {
-            color: white;
-            -webkit-text-fill-color: white;
-        }
-
-        .header-btn {
-            color: var(--text-secondary);
-
-            &:hover {
-                color: white;
-                background: var(--hover-bg);
-            }
-        }
-    }
-
-    // 侧边栏样式
-    .model-sidebar {
-        background: var(--sidebar-bg);
-        border-color: var(--border-color);
-
-        .function-item,
-        .model-item {
-            color: var(--text-secondary);
-
-            &:hover {
-                background: var(--hover-bg);
-            }
-        }
-    }
-
-    // 侧边栏切换按钮
-    .sidebar-toggle {
-        background: var(--bg-secondary);
-        color: var(--text-primary);
-
-        &:hover {
-            background: var(--hover-bg);
-        }
-    }
-
-    // 登录弹窗样式
-    .login-popup {
-        .popup-content {
-            background: var(--bg-secondary);
-        }
-
-        .input {
-            background: var(--input-bg);
-            color: var (--text-primary);
-            border-color: var(--border-color);
-        }
-    }
-
-    // 滚动条样式
-    ::-webkit-scrollbar-thumb {
-        background: var(--text-secondary);
-    }
-
-    ::-webkit-scrollbar-track {
-        background: var(--bg-secondary);
-    }
-
-    .upload-buttons {
-        .upload-btn {
-            image {
-                filter: invert(1) brightness(1.5);
-            }
-        }
-    }
-}
-
-// 全局滚动条样式
+// 全局滚动条样式 - 默认隐藏，特定容器可覆盖显示
 ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
@@ -283,18 +168,6 @@ page {
 
 ::-webkit-scrollbar-track {
     background: transparent;
-}
-
-// 全局滚动条控制
-::-webkit-scrollbar {
-    display: none !important;
-    width: 0 !important;
-    height: 0 !important;
-}
-
-* {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
 }
 
 .container {

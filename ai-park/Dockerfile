@@ -26,5 +26,17 @@ FROM nginx:alpine
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 # 复制产物目录
 COPY --from=builder /app/dist/build/h5 /usr/share/nginx/html
+
+# 修复: 将提取的 CSS 文件链接注入到 index.html 中
+# uni-app 生产构建提取了 CSS 但未自动注入 <link> 标签
+RUN CSS_FILE=$(find /usr/share/nginx/html/static -maxdepth 1 -name '*.css' | head -1) && \
+    if [ -n "$CSS_FILE" ]; then \
+      CSS_REL=$(echo "$CSS_FILE" | sed 's|/usr/share/nginx/html/||'); \
+      sed -i "s|</head>|<link rel=\"stylesheet\" href=\"./$CSS_REL\"></head>|" /usr/share/nginx/html/index.html; \
+      echo "Injected CSS: $CSS_REL"; \
+    else \
+      echo "WARNING: No CSS file found"; \
+    fi
+
 EXPOSE 8080
 CMD ["nginx", "-g", "daemon off;"]

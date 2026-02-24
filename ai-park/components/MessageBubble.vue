@@ -1011,7 +1011,7 @@ export default {
 
 /* 增强思考内容样式 - 减少与正文的距离 */
 :deep(.inline-thought) {
-  margin: 0px 110;
+  margin: 0;
 
   border-radius: 8px;
   /* 略微减小圆角，更贴合文本流 */
