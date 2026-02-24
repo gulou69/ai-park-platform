@@ -31,7 +31,7 @@
           <view class="history-actions">
             <!-- 删除编辑按钮，只保留删除按钮 -->
             <button class="action-btn delete-btn" @click.stop="deleteChat(chat)">
-              <image src="/static/icons/trash.svg" mode="aspectFit" />
+              <image src="/static/icons/trash.svg" mode="aspectFit" style="width: 16px; height: 16px;" />
             </button>
           </view>
         </view>
@@ -44,7 +44,7 @@
     <!-- 底部操作区 -->
     <view class="sidebar-footer" v-if="!isCollapsed">
       <button class="clear-history" @click="confirmClearHistory">
-        <image src="/static/icons/trash.svg" mode="aspectFit" />
+        <image src="/static/icons/trash.svg" mode="aspectFit" style="width: 16px; height: 16px;" />
         <text>清空历史记录</text>
       </button>
     </view>
@@ -552,29 +552,51 @@ export default {
 
   // 底部操作区域
   .sidebar-footer {
-    padding: 16px;
+    padding: 12px 16px;
     border-top: 1px solid var(--border-color);
+    flex-shrink: 0;
 
     .clear-history {
       width: 100%;
-      padding: 10px 0;
+      height: 40px;
+      max-height: 40px;
+      padding: 0 12px;
       border: none;
       background: transparent;
       border-radius: 8px;
       display: flex;
+      flex-direction: row;
       align-items: center;
       justify-content: center;
       gap: 8px;
       color: var(--text-secondary);
       font-size: 14px;
+      line-height: 40px;
       cursor: pointer;
       transition: all 0.2s ease;
+      overflow: hidden;
+      box-sizing: border-box;
+
+      &::after {
+        display: none; // 移除 uni-app button 默认边框
+      }
 
       image {
-        width: 16px;
-        height: 16px;
+        width: 16px !important;
+        height: 16px !important;
+        max-width: 16px;
+        max-height: 16px;
+        min-width: 16px;
+        min-height: 16px;
+        flex-shrink: 0;
         filter: var(--icon-filter);
         opacity: 0.6;
+      }
+
+      text {
+        font-size: 14px;
+        line-height: 1;
+        white-space: nowrap;
       }
 
       &:hover {

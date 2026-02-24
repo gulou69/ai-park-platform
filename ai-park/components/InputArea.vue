@@ -230,7 +230,7 @@ export default {
 .input-area {
   position: relative;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   width: 100%;
   gap: 10px;
   padding: 8px 12px;
@@ -243,10 +243,10 @@ export default {
 
   &.input-expanded {
     padding: 12px 16px;
-    background: var(--input-bg); /* 使用主题背景 */
-    align-items: flex-start;
+    background: var(--input-bg);
+    align-items: flex-end; /* 展开时按钮靠底部对齐 */
     animation: expandInput 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    box-shadow: 0 4px 20px var(--shadow-color); /* 增强阴影 */
+    box-shadow: 0 4px 20px var(--shadow-color);
   }
 
   &.input-collapsing {
@@ -258,19 +258,18 @@ export default {
   textarea {
     position: relative;
     flex: 1;
-    width: calc(100% - 80px); /* 调整宽度为发送按钮留出空间 */
     min-width: 0;
     height: auto;
     min-height: 24px;
     max-height: 200px; /* 设置最大高度 */
     margin: 0;
-    padding: 10px 12px;
+    padding: 8px 12px;
     border: none;
     border-radius: 12px;
     resize: none;
     outline: none;
     font-size: 14px;
-    line-height: 1.4;
+    line-height: 1.5;
     background: transparent;
     color: var(--text-primary);
     box-sizing: border-box;
@@ -314,18 +313,22 @@ export default {
   .send-btn {
     position: relative;
     flex-shrink: 0;
-    padding: 8px 20px;
+    width: auto;
+    height: 36px;
+    padding: 0 20px;
     border: none;
-    border-radius: 24px;
+    border-radius: 18px;
     background: linear-gradient(135deg, #007AFF, #00C6FF);
     color: #fff;
     font-weight: 500;
     font-size: 14px;
+    line-height: 36px;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 2px 8px var(--shadow-color);
     align-self: center;
     overflow: hidden;
+    white-space: nowrap;
 
     &::before {
       content: '';
